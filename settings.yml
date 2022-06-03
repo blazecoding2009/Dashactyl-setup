@@ -29,7 +29,7 @@ email_system: # This feature enable email system for Dashactyl v1
   smtp_password: "Enter your SMTP Password" # Your email password.
   extra: # Some additional things, this will edit some links in the HTML format that will be sent by email
     dashboardurl: "Enter your dashboard url with https" # Necessary
-    dashboardname: "Dashactyl" # Necessary 
+    dashboardname: "Dashactyl" # Necessary
 
 pterodactyl:
   domain: "Enter your Pterodactyl Panel domain here."
