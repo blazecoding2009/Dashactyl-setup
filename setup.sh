@@ -27,8 +27,8 @@ read -p "Enter the secret cookie password: " cookiepassword
 
 #Random cookie passwd generator if blank needed.
 
-sed -n -f 's/4440/$port/1' settings.yml
-sed -n -f 's/Enter your session password here./$cookiepassword/1' settings.yml
+sed -n 's/4440/$port/1' settings.yml
+sed -n 's/Enter your session password here./$cookiepassword/1' settings.yml
 
 read -p "Enter the url where Dashactyl will be running at (Don't enter https:// or http://) " url
 read -p "Is it secure? (Means HTTPS:// or not. Reply with y/n)" secure
@@ -45,21 +45,21 @@ elif [[secure == "n"]]; then
 fi
 
 fullurl = secure + url
-sed -n -f 's/http://localhost:8000/$fullurl/1' settings.yml
-sed -n -f 's/localhost:4440/$url/1' settings.yml
+sed -n 's/http://localhost:8000/$fullurl/1' settings.yml
+sed -n 's/localhost:4440/$url/1' settings.yml
 
 
 read -p "Enter the panel url include http:// or https://): " panelurl
 read -p "Enter the admin API key of panel: " panelapi
 
-sed -n -f 's/Enter your Pterodactyl Panel domain here./$panelurl/1' settings.yml
-sed -n -f 's/Enter your Pterodactyl Panel application API key here./$panelapi/1' settings.yml
+sed -n 's/Enter your Pterodactyl Panel domain here./$panelurl/1' settings.yml
+sed -n 's/Enter your Pterodactyl Panel application API key here./$panelapi/1' settings.yml
 
 read -p "Do you want to setup an audit log webhook? (y/n)" webhook_prompt
 if [[ webhook_prompt == "y"]]; then
       read -p "What's the webhook URL?" webhook_url
-      sed -n -f 's/false # enable or disable the Audit Logs/true # enable or disable the Audit Logs/1' settings.yml
-      sed -n -f 's/Enter your webhook URL/$webhook_url/1' settings.yml
+      sed -n 's/false # enable or disable the Audit Logs/true # enable or disable the Audit Logs/1' settings.yml
+      sed -n 's/Enter your webhook URL/$webhook_url/1' settings.yml
 fi
 
 echo "Let's setup the shop now"
