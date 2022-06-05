@@ -43,6 +43,7 @@ if [[ secure == "y" ]]; then
 elif [[secure == "n"]]; then
       secure = "http://"
 fi
+
 fullurl = secure + url
 sed -n -f 's/http://localhost:8000/$fullurl/1' settings.yml
 sed -n -f 's/localhost:4440/$url/1' settings.yml
