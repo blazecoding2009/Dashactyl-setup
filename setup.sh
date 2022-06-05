@@ -41,12 +41,12 @@ read -p "Enter the Discord Registered Role ID: " roleid
 if [[ secure == "y" ]]; then
       secure = "https://"
       fullurl = secure + url
-elif [[secure == "n"]]; then
+elif [[ secure == "n" ]]; then
       secure = "http://"
       fullurl = secure + url
 fi
 
-sed -n 's/http://localhost:8000/$fullurl/1' settings.yml
+sed -n 's,http://localhost:8000,$fullurl,1' settings.yml
 sed -n 's/localhost:4440/$url/1' settings.yml
 
 
